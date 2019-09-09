@@ -1,0 +1,17 @@
+<h1>FAKENEWS</h1>
+
+
+<a href="/create"><button>Create</button></a>
+
+{{#each news}}
+<div>
+  <p>{{this.title}}</p>
+  <small>{{this.body}}</small>
+  <hr>
+  <b>By : {{this.author.name}}</b>
+  {{#if ../user}}
+  <a href="/delete/{{_id}}">Delete</a>
+  {{/if}}
+</div>
+<br>
+{{/each}}

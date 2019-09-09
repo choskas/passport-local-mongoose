@@ -41,6 +41,11 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
   res.render('auth/profile', { user: req.user });
 });
 
+router.get('/logout', (req,res,next)=>{
+  req.logout();
+  res.redirect('/login')
+})
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     next();
@@ -49,4 +54,17 @@ function isLoggedIn(req, res, next) {
   }
 }
 
+
+
 module.exports = router;
+
+
+
+// recordar instalar npm i passport-local-mongoose
+//npm i passport
+//auth con redes 
+//1. instalar la estrategia
+//2. configurar la estrategia
+//3. ver si ya se habia logeado antes y si no se le crea una cuenta xdd
+//4. crear dos rutas, passport.authenticate
+
